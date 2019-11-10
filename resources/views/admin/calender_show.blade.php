@@ -40,7 +40,11 @@
                                         {{date("D", strtotime($item->deadline))}} {{date("F", strtotime($item->deadline))}}  {{date("Y", strtotime($item->deadline))}} 17:59
                                     </td>
                                     <td style="width: 15%">
-                                        <button class="btn btn-success" style="color:white" ><i class="fa fa-table"></i> Details</button>
+                                        @if($item->deadline < Carbon\Carbon::now())
+                                            <a  class="btn btn-primary" style="color:white" href="{{route('details',$item->id)}}" ><i class="fa fa-sliders"></i> Statistics</a>
+                                        @else
+                                            <a  class="btn btn-success" style="color:white" href="{{route('details',$item->id)}}" ><i class="fa fa-table"></i> Vote It!</a>
+                                        @endif
                                     </td>
                                     @if(auth()->user()->role==1) <td style="width: 15%">
                                         <button class="btn btn-danger" style="color:white" data-toggle="modal" data-target="#exampleModal{{$item->id}}"><i class="fa fa-trash-o"></i> Delete</button>
@@ -52,11 +56,11 @@
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-body">
-                                                <h5 class="container">Are you sure you want to delete user: <br><br><b>"{{$item->name}}" ?</b></h5>
+                                                <h5 class="container">Are you sure you want to delete election: <br><br><b>"{{$item->name}}" ?</b></h5>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-success" data-dismiss="modal">No</button>
-                                                <button type="button" class="btn btn-danger" > <a style="color:white;" href="{{route('delete_user',$item->id)}}">Yes</a></button>
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+                                                <button type="button" class="btn btn-success" > <a style="color:white;" href="">Yes</a></button>
                                             </div>
                                         </div>
                                     </div>

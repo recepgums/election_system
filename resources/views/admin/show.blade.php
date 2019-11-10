@@ -57,7 +57,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-success" data-dismiss="modal">No</button>
-                                            <button type="button" class="btn btn-danger" > <a style="color:white;" href="{{route('delete_user',$item->id)}}">Yes</a></button>
+                                            <button type="button" class="btn btn-danger" ><a style="color:white;" href="{{route('delete_user',$item->id)}}">Yes</a></button>
                                         </div>
                                     </div>
                                 </div>
@@ -65,7 +65,6 @@
                             @endforeach
                             </tbody>
                         </table>
-                        <!-- end project list -->
                     </div>
                 </div>
             </div>

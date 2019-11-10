@@ -10,4 +10,10 @@ class Candidates extends Model
     protected $fillable = [
         'user_id','election_id','description','files','votes'
     ];
+    public function user(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
+    public function election(){
+        return $this->belongsTo(Elections::class, 'election_id');
+    }
 }

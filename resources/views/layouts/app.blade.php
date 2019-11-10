@@ -89,10 +89,13 @@
                             @endif
                             <li class="label">Apps</li>
                             <li><a href="{{route('calender_show')}}"><i class="ti-calendar"></i> Calender </a></li>
-                            <li><a href="{{route('Profile')}}"><i class="ti-user"></i> Profile</a></li>
+                            @if(auth()->user()->role!=1)<li><a href="{{route('Profile',auth()->user()->id)}}"><i class="ti-user"></i> Profile</a></li>@endif
+                            @if(auth()->user()->role==1)<li><a href="{{route('Admission')}}"><i class="ti-save"></i> Candidate Application</a></li>@endif
                             @if(auth()->user()->role==0)
                                     <li><a href="{{route('application_show',auth()->user()->id)}}"><i class="ti-user"></i> Application</a></li>
                             @endif
+
+
                             <li>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
@@ -147,15 +150,15 @@
         <!--  flot-chart js -->
         <script src="{{asset('assets/js/lib/flot-chart/jquery.flot.js')}}"></script>
         <script src="{{asset('assets/js/lib/flot-chart/jquery.flot.resize.js')}}"></script>
-        <script src="{{asset('assets/js/lib/flot-chart/flot-chart-init.js"')}}></script>
+        <script src="{{asset('assets/js/lib/flot-chart/flot-chart-init.js')}}"></script>
         <!-- // flot-chart js -->
 
 
-        <script src="{{asset('assets/js/lib/vector-map/jquery.vmap.js')}}"></script>
+        <script src="{{asset('assets/js/lib/vector-map/jquery.vmap.js')}}"> </script>
         <!-- scripit init-->
-        <script src="{{asset('assets/js/lib/vector-map/jquery.vmap.min.js"')}}></script>
+        <script src="{{asset('assets/js/lib/vector-map/jquery.vmap.min.js"')}}"> </script>
         <!-- scripit init-->
-        <script src="assets/js/lib/vector-map/jquery.vmap.sampledata.js"></script>
+        <script src="{{asset('assets/js/lib/vector-map/jquery.vmap.sampledata.js)'}}"></script>
         <script src="{{asset('assets/js/lib/vector-map/country/jquery.vmap.greece.js')}}"></script>
         <!-- scripit init-->
         <script src="{{asset('assets/js/lib/vector-map/country/jquery.vmap.iran.js')}}"></script>
