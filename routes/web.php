@@ -34,4 +34,5 @@ Route::get('/calendar/details/{id}', 'ElectionsController@details')->name('detai
 Route::post('/calendar/vote/{id}', 'VotesController@vote')->name('vote');
 Route::post('/candidate/profile/{id}', 'CandidateController@edit')->name('profile_edit');
 Route::post('/candidate/delete/{id}', 'CandidateController@delete_file')->name('delete_file');
+Route::get('/candidate/details_of_calendar/{id}', 'ElectionsController@details_of_election')->name('details_of_election');
 

@@ -17,9 +17,9 @@
             <button type="submit" class="btn btn-primary form-control">Edit</button>
         </div>
         </form>
-        @if($files)<center><h1 >Files</h1></center>
+        @if(strlen($files) > 2)
+            <center><h1 >Files</h1></center>
             @foreach($files as $item)<br>
-
                 <form action="{{route('delete_file', $item->id)}}" method="post">
                     @csrf
                     <div>
@@ -29,6 +29,5 @@
                 </form>
             @endforeach
         @endif
-
     </div>
 @endsection('content')

@@ -158,7 +158,7 @@
         <!-- scripit init-->
         <script src="{{asset('assets/js/lib/vector-map/jquery.vmap.min.js"')}}"> </script>
         <!-- scripit init-->
-        <script src="{{asset('assets/js/lib/vector-map/jquery.vmap.sampledata.js)'}}"></script>
+        <script src="{{asset('assets/js/lib/vector-map/jquery.vmap.sampledata.js')}}"></script>
         <script src="{{asset('assets/js/lib/vector-map/country/jquery.vmap.greece.js')}}"></script>
         <!-- scripit init-->
         <script src="{{asset('assets/js/lib/vector-map/country/jquery.vmap.iran.js')}}"></script>

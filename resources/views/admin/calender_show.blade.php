@@ -41,7 +41,7 @@
                                     </td>
                                     <td style="width: 15%">
                                         @if($item->deadline < Carbon\Carbon::now())
-                                            <a  class="btn btn-primary" style="color:white" href="{{route('details',$item->id)}}" ><i class="fa fa-sliders"></i> Statistics</a>
+                                            <a  class="btn btn-primary" style="color:white" href="{{route('details_of_election',$item->id)}}" ><i class="fa fa-sliders"></i> Statistics</a>
                                         @else
                                             <a  class="btn btn-success" style="color:white" href="{{route('details',$item->id)}}" ><i class="fa fa-table"></i> Vote It!</a>
                                         @endif

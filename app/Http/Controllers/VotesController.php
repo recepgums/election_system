@@ -9,7 +9,7 @@ class VotesController extends Controller
 {
     public function vote(Request $request,$id){
         $data=new Votes();
-        $data->voter_id=$id;
+        $data->voter_id=$id;//AUTH user id
         $data->election_id=$request->election;
         $data->candidate_id=$request->vote;
 

@@ -14,6 +14,19 @@ class ElectionsController extends Controller
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
+    public function details_of_election($id){
+        $election_id=$id;
+        $data=Votes::where('election_id','=',$id)->get();
+        $total_votes=$data->count();
+        $candidates=Candidates::where('election_id',$id)->get();
+        $colors=['red','blue','yellow','green','purple','brown','orange','black','lightgreen','lightblue','lighyellow'];
+        View::share('total_votes',$total_votes);
+        View::share('colors',$colors);
+        View::share('election_id',$election_id);
+        View::share('candidates',$candidates);
+
+        return view('calendar.details_of_election');
+    }
     public function show()
     {
         $elections = Elections::all();
@@ -36,7 +49,8 @@ class ElectionsController extends Controller
         if(Votes::where('voter_id', auth()->user()->id)->where('election_id', $id)->get()->count() > 0){
             $have_voted=1;
         }
-        $candidates = Candidates::all();
+
+        $candidates = Candidates::inRandomOrder()->get();
         $election = Elections::find($id);
         View::share('candidates', $candidates);
         View::share('have_voted', $have_voted);
