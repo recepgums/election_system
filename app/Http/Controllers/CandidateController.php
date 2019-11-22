@@ -47,7 +47,6 @@ class CandidateController extends Controller
             $destinationPath = public_path('/candidate_files');
             $image->move($destinationPath, $name);
             $new_file->save();
-
         }
         return redirect()->back();
     }
